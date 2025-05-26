@@ -1,1 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About - Sh. Kishki</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Cairo', sans-serif;
+      background-color: #fdf6ec;
+      color: #2c3e50;
+    }
 
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #2ecc71;
+      padding: 15px 20px;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-brand {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+     .nav-brand a{
+      color: white;
+      text-decoration: none;
+    }
+
+    .nav-toggle {
+      display: none;
+      font-size: 1.8em;
+      cursor: pointer;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-menu a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      .nav-toggle {
+        display: block;
+      }
+
+      .nav-menu {
+        display: none;
+        flex-direction: column;
+        background-color: #2ecc71;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        width: 200px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      }
+
+      .nav-menu a {
+        padding: 10px;
+        border-bottom: 1px solid rgba(255,255,255,0.3);
+      }
+
+      .nav-menu.show {
+        display: flex;
+      }
+    }
+
+    .about-container {
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .about-container h1 {
+      color: #16a085;
+      margin-bottom: 20px;
+    }
+
+    .about-container p {
+      font-size: 1.1em;
+      line-height: 1.7;
+      margin-bottom: 30px;
+    }
+
+    .social-links {
+      margin-top: 30px;
+    }
+
+    .social-links a {
+      display: inline-block;
+      margin: 0 10px;
+      text-decoration: none;
+      color: #2c3e50;
+      font-weight: bold;
+      font-size: 1em;
+      padding: 10px 15px;
+      border: 2px solid #2ecc71;
+      border-radius: 5px;
+      transition: all 0.3s;
+    }
+
+    .social-links a:hover {
+      background-color: #2ecc71;
+      color: white;
+    }
+.faq-section {
+  background-color: #f9f9f9;
+  padding: 50px 20px;
+  max-width: 900px;
+  margin: auto;
+  border-radius: 12px;
+  margin-bottom: 60px;
+}
+
+.faq-section h2 {
+  text-align: center;
+  color: #16a085;
+  margin-bottom: 30px;
+}
+
+.faq details {
+  background: white;
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  cursor: pointer;
+}
+
+.faq summary {
+  font-weight: bold;
+  font-size: 1.1em;
+  color: #2c3e50;
+}
+
+.faq p {
+  margin-top: 10px;
+  color: #444;
+}
+
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+      margin-top: 60px;
+    }
+.kishki2{
+width:350px;
+border-radius:10px;
+height: auto;
+}
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-brand"><a href="index.html">Sh. Abdulkadir Kishki</a></div>
+    <div class="nav-toggle" onclick="toggleMenu()">☰</div>
+    <div class="nav-menu" id="navMenu">
+      <a href="index.html">Home</a>
+      <a href="index.html#playlist">Playlists</a>
+      <a href="about.html">About</a>
+    </div>
+  </nav>
+
+  <div class="about-container">
+    <h1>About Shiikh Abdulkadir Kishki.</h1>
+<img class="kishki2" src="kishki2.jpg">
+    <p>Shiikh Abdulkadir Kishki waa caalim
+ Soomaaliyeed oo caan ku ah Fidinta Diinta islaamka, Wacyi gelinta Bulshada iyo Wadanoolaashaha . Wuxuu si weyn ugu Hor Yimid in Diinta Qalad Loo Fahmo isagoo Bulshadana Kawacyi galiyada Cudurada ay kamidyihiin Naceybka, Xasadka iyo islaweynida dadka aqoonta Islaamka, isagoo mar walba ku baraarujin jiray jaceylka, naxariista, iyo samafalka. Waxay dadka badankood kaga
+faa’iidaysteen duruustiisa qoto dheer iyo
+ fariimihiisa qalbiga taabanaya.</p>
+    <p>Wuxuu Shiikhu ka hadlaa arrimo la xiriira akhlaaqda, qoyska, caqiidada, iyo xuquuqda dadka, isagoo mar walba diirada saaraya caddaaladda iyo Wadanoolaanshaha Ay Nafartay diinta Islaamka.</p>
+
+<p> Waa Kuwan Hoose Akoonada Baraha Bulshada Uu Kuleeyahay Shiikha.
+    <div class="social-links">
+      <a href="https://youtube.com/@sheikhkishki" target="_blank">YouTube</a>
+      <a href="https://www.tiktok.com/@sheikhkishki" target="_blank">TikTok</a>
+      <a href="https://www.facebook.com/sheikhkishki" target="_blank">Facebook</a>
+    </div>
+  </div>
+<section class="faq-section">
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq">
+    <details>
+      <summary>Kishki Maxaa Loogu Naaneesay Shiikha?</summary>
+      <p>Shiikha Wuxuu Aad U jeclaa Shiikhi Masriga Ahaa (Aun) Abdal-Hamid Kishk Sidaas Baa Loogu Naaneesay Kishki.</p>
+    </details>
+
+    <details>
+      <summary>Casharada Shiikha intee Lasoo Galiyaa?</summary>
+      <p>Casharadiisa Waxa lasoo Galiyaa Facebook-giisa iyo Youtube-kiisa <a href="index.html#playlist">Playlists</a>.</p>
+    </details>
+
+    <details>
+      <summary>Shiikha Ururkee Ayuu Katirsanyahay?</summary>
+      <p>Shiikha Kama tirsana Urur  Wuxuu Cilmigiisa Umada ugu Faaiideeya Si Bilaash Ah.</p>
+    </details>
+
+    <details>
+      <summary>Su aal Baan Rabay Shiikha Inaa Waydiiyo Ee intee Kala xariiraa?</summary>
+      <p>Waxa Kawaydiin Kartaa Facebook-giisa Ama Live-ka tiktok Ee Uu Bulshada Su aalaha Ay Qabaan ugu Jawaabo.</p>
+    </details>
+  </div>
+</section>
+  <footer>
+    <p>&copy; 2025 Sh. Abdulkadir Kishki. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("navMenu");
+      menu.classList.toggle("show");
+    }
+  </script>
+</body>
+  </html>
