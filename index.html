@@ -1,1 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sheikh's Web</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+   
+  .nav-brand a{
+      color: white;
+      text-decoration: none;
+    }
+  
 
+    body {
+      
+      margin: 0;
+      font-family: 'Cairo', sans-serif;
+      background-color: #fdf6ec;
+      color: #2c3e50;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #2ecc71;
+      padding: 15px 20px;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-brand {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    .nav-toggle {
+      display: none;
+      font-size: 1.8em;
+      cursor: pointer;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-menu a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      .nav-toggle {
+        display: block;
+      }
+      .nav-menu {
+        display: none;
+        flex-direction: column;
+        background-color: #2ecc71;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        width: 200px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      }
+      .nav-menu a {
+        padding: 10px;
+        border-bottom: 1px solid rgba(255,255,255,0.3);
+      }
+      .nav-menu.show {
+        display: flex;
+      }
+    }
+
+    
+    .hero {
+      position: relative;
+      color: white;
+      text-align: center;
+      z-index: 1;
+    }
+
+    .hero img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .hero p {
+      font-size: 1.4em;
+      font-style: italic;
+      background: rgba(46, 204, 113, 0.85);
+      padding: 30px 20px;
+      margin: 0;
+    }
+
+    /* About Card */
+    .about-card {
+      background-color: #fff9f0;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .about-card h2 {
+      font-size: 2em;
+      margin-bottom: 10px;
+      color: #16a085;
+    }
+
+    .about-card p {
+      max-width: 800px;
+      margin: 0 auto 20px;
+      font-size: 1.1em;
+    }
+
+    .about-card img {
+      width: 350px;
+      height: 300px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    
+    .playlist {
+      background-color: #d0ebff;
+      padding: 40px 20px;
+    }
+
+    .playlist h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      justify-items: center;
+    }
+
+    .audio-item {
+      background-color: #ffffff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+      width: 100%;
+      max-width: 300px;
+      text-decoration: none;
+    }
+
+    .audio-item:hover {
+      transform: scale(1.03);
+    }
+
+    .audio-item img {
+      width: 100%;
+      display: block;
+    }
+
+    .audio-item .title {
+      font-weight: bold;
+      font-size: 1.1em;
+      padding: 10px;
+      text-align: center;
+      background-color: #f2f2f2;
+      color: #2c3e50;
+    }
+
+    
+    .photos {
+      background-color: #f5f0e1;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .photos h2 {
+      margin-bottom: 20px;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .gallery img {
+      width: 200px;
+      height: auto;
+      border: 4px solid #8d6748;
+      border-radius: 10px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .view-photos-button {
+      background-color: #8d6748;
+      
+      padding: 12px 25px;
+      font-size: 1em;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+     
+    }
+   .view-photos-button a {
+text-decoration:none;
+color: white;
+}
+
+    .view-photos-button:hover {
+      background-color: #6f4f33;
+    }
+
+    
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-brand"><a href="index.html">Sh. Abdulkadir Kishki</a></div>
+    <div class="nav-toggle" onclick="toggleMenu()">☰</div>
+    <div class="nav-menu" id="navMenu">
+      <a href="#home">Home</a>
+      <a href="#playlist">Playlists</a>
+      <a href="about.html">About</a>
+    </div>
+  </nav>
+
+  <section class="hero" id="home">
+    <img src="kishki.jpg" alt="Hero Image">
+    <p>"Waxaan ugu Jeclahay jaceylka, waxaana ugu necbahay naceybka."<br>— Shiikh A. Kishki</p>
+  </section>
+
+  <section class="about-card" id="about">
+    <h2>Waa kuma Shiikh Abdulkadir Kishki?</h2>
+    <p>Shiikh Abdulkadir Kishki waa Caalim Soomaaliyeed Oo caan ku Ah Xushmad, Xikmad iyo Fidinta Diinta Islaamka.
+ Wuxuu Bulshada U Cadeeyaa Waxa Si Khalad Loogu Sheegay iyo Waxa Laga Khariyay,
+ Waa Shiikh Wellrounded Ah Oo Meela Badan Wax Ka eega Haday Ahaan Leheed Falsafada, Taariikhda, Cilmiga Bulshada, Cilmu Nafsiga, Cilmiga Neerfaha iyo faham qoto dheer ee diinta islaamka. Waa Shiikh ay dad badan ka faa’iideen duruustiisa iyo dardaarankiisa.</p>
+    <a href="https://youtube.com/watch?v=tDgMfkK2VJ4&si=P7ut0q1PPU6lYBzT" target="">
+      <img src="waa-kuma.jpg" alt="Waa Kuma">
+   
+    </a>
+  </section>
+
+  <section class="playlist" id="playlist">
+    <h2>Playlists</h2>
+    <div class="grid">
+      <a class="audio-item" href="https://youtube.com/playlist?list=PLVg7411KEbbrkNQGHDy_J-veGdkQXR8kC&si=AWMhLQJcbyqgc6Qf">
+        <img src="caqiidada.jpg" alt="Lecture 1">
+        <div class="title">Caqiidada</div>
+      </a>
+      <a class="audio-item" href="https://youtube.com/playlist?list=PLVg7411KEbbomZbxLRtcDlbe9Sa1MGoCO&si=3dh6__sCff5zSJIL">
+        <img src="radintii-shibli.jpg" alt="Lecture 2">
+        <div class="title">Radintii Shibli</div>
+      </a>
+      <a class="audio-item" href="https://youtube.com/playlist?list=PLVg7411KEbbp5u0N0uhQyQ2kFv8Y2gKuL&si=NFBCIHuvp_jaESfJ">
+        <img src="xadgudub-dumarka.jpg" alt="Lecture 3">
+        <div class="title">Xadgudubka Loogeystay Dumarka</div>
+      </a>
+      <a class="audio-item" href="https://youtube.com/playlist?list=PLVg7411KEbbruYkVuTW0tqWy6C1xemAXe&si=e30UhHtao6VoIfpC">
+        <img src="gafaf.jpg" alt="Lecture 4">
+        <div class="title">Gafafka Nabiga Loogeystay</div>
+      </a>
+      <a class="audio-item" href="https://youtube.com/playlist?list=PLVg7411KEbbqyTdOcN0Lkna090aGrGC7A&si=Hmr5G9yo197CPIPS">
+        <img src="Heesaha.jpg" alt="Lecture 5">
+        <div class="title">Heesaha</div>
+      </a>
+      <a class="audio-item" href="https://youtube.com/playlist?list=PLVg7411KEbbr-89SYBc7YxZ8RhcW3USog&si=k90ae0rVXSReBJcm">
+        <img src="diinta-siyaasada.jpg" alt="Lecture 6">
+        <div class="title">Diinta iyo Siyaasada</div>
+      </a>
+    </div>
+  </section>
+
+<section class="playlist" id="playlist">
+    <h2>Other Topics</h2>
+    <div class="grid">
+      <a class="audio-item" href="https://youtu.be/B_ORF8wQ5qk?si=WKochwCdwX3UEQgu">
+        <img src="akhlaaqda.jpg" alt="Lecture 1">
+        <div class="title">Akhlaaqda</div>
+      </a>
+      <a class="audio-item" href="https://youtube.com/watch?v=F5djq-zRNkU&si=9QTHfgZCp9dQNWvs">
+        <img src="xukun.jpg" alt="Lecture 2">
+        <div class="title">Xukun Ciqaabeedka islaamka</div>
+      </a>
+      <a class="audio-item" href="https://youtu.be/qkgAG4cHyOs?si=AbItnjHtlpOCtK4j">
+        <img src="miisaanka.jpg" alt="Lecture 3">
+        <div class="title">Miisaanka Nolosha</div>
+      </a>
+      <a class="audio-item" href="https://youtu.be/wgrLVn_0t5Q?si=dEwVoyMJ-2V8aZKT">
+        <img src="iskukadsoomida.jpg" alt="Lecture 4">
+        <div class="title">iskukadsoomida iyo culimada</div>
+      </a>
+      <a class="audio-item" href="https://youtu.be/s_lZGTPYWak?si=EGBe3V64w_HHuZEQ">
+        <img src="qalbiga.jpg" alt="Lecture 5">
+        <div class="title">Islaamka iyo Qalbiga</div>
+      </a>
+      <a class="audio-item" href="https://youtu.be/O9Vsx0tDIQI?si=13r6XWj7_s1X6AyP">
+        <img src="xasadka.jpg" alt="Lecture 6">
+        <div class="title">Islaamka iyo Xaasidnimada</div>
+      </a>
+    </div>
+  </section>
+
+  <section class="photos">
+    <h2>Photos Album</h2>
+    <div class="gallery">
+      <a href="photos.html"><img src="photo-album.jpg" alt="Photo 1">
+    </div>
+    <button class="view-photos-button"><a href="photos.html">View Photos</a></button>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Sh. Abdulkadir Kishki. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("navMenu");
+      menu.classList.toggle("show");
+    }
+  </script>
+</body>
+</html> 
